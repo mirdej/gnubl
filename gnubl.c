@@ -120,7 +120,7 @@ int main(int argc, char **argv)
             }
         }
     }
-    usb_close(handle);
+    //usb_close(handle);
     if (!counter) {
     	if (argc > 1) {
 	    	printf ("\nNo devices found with name \"%s\".\n\n",argv[1]);
