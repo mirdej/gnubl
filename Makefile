@@ -12,7 +12,15 @@
 # tool has been successfully compiled on Mac OS X, Linux and Windows.
 
 CC              = gcc
-LIBUSB_CONFIG   = /usr/local/CrossPack-AVR/bin/libusb-config
+
+# Check OS version and define libusb-config
+UNAME_S := $(shell uname -s)
+   ifeq ($(UNAME_S),Linux)
+      LIBUSB_CONFIG = /usr/bin/libusb-config
+   else
+      LIBUSB_CONFIG = /usr/local/CrossPack-AVR/bin/libusb-config
+   endif
+
 # Make sure that libusb-config is in the search path or specify a full path.
 # On Windows, there is no libusb-config and you must configure the options
 # below manually. See examples.
